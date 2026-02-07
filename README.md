@@ -18,15 +18,17 @@
 
 ## 🎯 Overview
 
-**nanocortex** is a production-grade, modular AI decision and control platform demonstrating how multimodal AI systems can perceive, reason, act, and learn under explicit constraints—with full auditability and human control.
+**nanocortex** is a **reference implementation for constrained, auditable AI systems** — demonstrating how multimodal AI can perceive, reason, act, and learn under explicit constraints with full human control.
 
 - 🔍 **Perceives** documents via PDF/image ingestion with OCR
 - 📚 **Retrieves** citation-grounded evidence without hallucinations
 - 🧠 **Reasons** with policy enforcement and approval workflows
-- 📈 **Learns** from outcomes without retraining base models
+- 📈 **Adapts** behavior from outcomes without retraining base models
 - 📋 **Audits** every decision from input to outcome
 
 > ⚠️ **This is not a chatbot.** This is a *decision machine* capable of acting under constraints, explaining its outputs, and improving behavior over time.
+>
+> Autonomy without constraints is explicitly rejected as a design goal.
 
 ---
 
@@ -342,9 +344,9 @@ cortex.policy_engine.add_rule(PolicyRule(
 
 ---
 
-## 📊 Learning Loop
+## 📊 Behavioral Adaptation
 
-The system learns from outcomes **without retraining base models**:
+The system adapts behavior from outcomes **without retraining base models**:
 
 | Feature | Description |
 |---------|-------------|
@@ -387,6 +389,16 @@ print(f"Adjustments made: {stats['adjustment_count']}")
 
 ---
 
+## 🧭 Design Invariants
+
+Three principles that never bend:
+
+- **Policies never live in prompts** — rules are data, externalized and auditable
+- **Evidence is required for every answer** — no hallucinations by design
+- **Humans can always interrupt execution** — approval workflows are first-class
+
+---
+
 ## 📝 License
 
 MIT License - See [LICENSE](LICENSE) for details.
@@ -397,6 +409,6 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 **Built with ❤️ by STIFLER**
 
-*A reference architecture demonstrating how AI should be allowed to act.*
+*A reference implementation for constrained, auditable AI systems.*
 
 </div>
