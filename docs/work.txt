@@ -1,0 +1,167 @@
+Unified AI System
+Statement of Work (SoW)
+1. Overview
+
+Unified AI System is a production-grade, modular AI decision and control platform that integrates perception, knowledge retrieval, reasoning, policy enforcement, and self-improvement into a single auditable system.
+
+This repository unifies and subsumes prior evaluated projects—including iai-solutions-task, antigravity, CloudRedux, agent-dev-assignment, Huemn.AI, gradia, and imgshape—into a cohesive reference architecture.
+
+The system is designed not as a chatbot or demo, but as a decision machine capable of acting under constraints, explaining its outputs, and improving behavior over time.
+
+This SoW reflects the architecture described in the uploaded system document 
+
+sys.exe
+
+.
+
+2. Objectives
+
+The Unified AI System aims to:
+
+Convert unstructured multimodal inputs into structured, verifiable knowledge
+
+Perform citation-grounded, multimodal retrieval without silent hallucinations
+
+Execute decisions under explicit policies and human-in-the-loop controls
+
+Learn from outcomes without retraining base models
+
+Provide full auditability across perception, reasoning, and action
+
+3. System Scope
+3.1 Functional Scope
+
+The system consists of five tightly-coupled layers:
+
+Perception & Extraction Layer
+(derived from: agent-dev-assignment, vision-to-action, gradia, imgshape)
+
+PDF, image, and document ingestion
+
+OCR, layout understanding, bounding-box grounded extraction
+
+Image diagnostics and dataset signal analysis
+
+Knowledge & Retrieval Layer
+(derived from: iai-solutions-task, agentic-rag)
+
+Hybrid RAG (BM25 + vector + reranking)
+
+Multimodal evidence retrieval (text + image)
+
+Citation and provenance tracking
+
+Reasoning & Control Layer
+(derived from: CloudRedux, antigravity)
+
+Stateful agents with externalized rules
+
+Policy enforcement and approval workflows
+
+Memory persistence independent of LLM context
+
+Adaptation & Learning Layer
+(derived from: Huemn.AI)
+
+Outcome evaluation and mistake tracking
+
+Behavioral correction without model retraining
+
+Observable system improvement over runs
+
+Observability & Audit Layer
+(cross-cutting)
+
+Decision traces
+
+Evidence references (page, image_id, bounding box)
+
+Human override logs
+
+4. Explicit Traceability to Prior Work
+Original Assignment / Project	Contribution to Unified System
+iai-solutions-task	Citation-grounded RAG, evidence handling
+antigravity	Policy-first agent control, pause/resume
+CloudRedux	Stateful decision agents, approvals
+agent-dev-assignment (dex)	Document ingestion, extraction pipelines
+Huemn.AI	Post-run evaluation, learning loop
+gradia	Interactive feedback & diagnostics
+imgshape	Image diagnostics and signal validation
+
+This ensures reviewers can map every capability to a previously evaluated artifact.
+
+5. Non-Goals (Explicitly Stated)
+
+Not a conversational chatbot
+
+Not an end-user SaaS product
+
+Not an autonomous agent without controls
+
+Not a black-box ML system
+
+This is a reference system demonstrating how AI should be allowed to act.
+
+6. Deliverables
+
+Single unified repository
+
+Architecture diagram (system-level)
+
+One thin vertical slice implementation:
+
+One PDF with images
+
+One multimodal retrieval query
+
+One policy rule
+
+One human-in-the-loop pause
+
+One learning feedback loop
+
+Reproducible setup with deterministic outputs
+
+7. Quality Attributes
+
+Deterministic failure modes (no silent hallucinations)
+
+Clear separation between reasoning and rules
+
+First-class image evidence (no metadata hacks)
+
+Full audit trail from input → decision → outcome
+
+8. Repository Name
+
+nanocortex
+
+9. Positioning Statement (for README header)
+
+Unified AI System is a reference architecture demonstrating how multimodal AI systems can perceive, reason, act, and learn under explicit constraints—with full auditability and human control.
+
+Final strategic note
+
+This SoW doesn’t make you look like “someone who built many agents.”
+It makes you look like someone who understands AI as infrastructure.
+
+Final recommended stack (this is the killer setup)
+
+Primary Orchestrator
+→ GPT-5.2 Codex
+
+Reasoning Auditor / Explainer
+→ Claude Opus 4.6
+
+Optional Ingestion Helper (RAG-heavy flows)
+→ KimiK 2.5 (only for document digestion, not decisions)
+
+This mirrors how serious systems are built:
+
+One model acts
+
+One model judges
+
+One model reads
+
+No single-model arrogance. That’s how systems fail.
