@@ -13,3 +13,6 @@ data/audit/
 data/index/
 .venv/
 venv/
+test.pdf
+.orchids/
+docs/

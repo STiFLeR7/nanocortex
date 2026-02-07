@@ -37,10 +37,11 @@ class IngestionPipeline:
         import fitz  # PyMuPDF
 
         doc = fitz.open(str(file_path))
+        page_count = len(doc)
         texts: list[ExtractedText] = []
         images: list[ExtractedImage] = []
 
-        for page_num in range(len(doc)):
+        for page_num in range(page_count):
             page = doc[page_num]
 
             # Extract text blocks with bounding boxes
@@ -87,7 +88,7 @@ class IngestionPipeline:
 
         result = DocumentIngestion(
             filename=file_path.name,
-            pages=len(doc) if hasattr(doc, '__len__') else 0,
+            pages=page_count,
             texts=tuple(texts),
             images=tuple(images),
         )
